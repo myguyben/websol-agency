@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Websol</title>
+    <meta name="description" content="Simple, predictable monthly pricing for premium web design.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower"></div>
+    <div class="mouse-glow"></div>
+
+    <div id="preloader">
+        <div class="preloader-text">PRICING</div>
+    </div>
+
+    <div class="background-gradient"></div>
+    <div class="huge-text" style="position: fixed; top: 10vh; z-index: -1;">TRANSPARENT</div>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="hexagon"></i> Websol
+            </a>
+            <div class="nav-links">
+                <a href="index.html" data-text="Home"><span>Home</span></a>
+                <a href="pricing.html" data-text="Pricing"><span>Pricing</span></a>
+                <a href="portfolio.html" data-text="Portfolio"><span>Portfolio</span></a>
+                <a href="contact.html" data-text="Contact"><span>Contact</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="height: 50vh; padding-top: 15vh;">
+        <div class="container text-center">
+            <h1 class="split-text">Zero <span class="text-gradient">Surprises.</span></h1>
+            <p class="fade-up" style="max-width: 600px; margin: 2rem auto 0; font-size: 1.25rem;">We offer one premium
+                operations tier. Everything you need to dominate online is included.</p>
+        </div>
+    </section>
+
+    <section class="pricing-block" style="padding-top: 0;">
+        <div class="container fade-up">
+            <h2>The Websol Tier</h2>
+            <div class="price">$199</div>
+
+            <div
+                style="max-width: 800px; margin: 4rem auto; text-align: left; background: rgba(255,255,255,0.03); padding: 4rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <li style="display: flex; gap: 1rem; align-items: start;"><i data-lucide="check"
+                            style="color: var(--primary);"></i> <span style="font-size: 1.1rem;">Custom Premium Design &
+                            Dev</span></li>
+                    <li style="display: flex; gap: 1rem; align-items: start;"><i data-lucide="check"
+                            style="color: var(--primary);"></i> <span style="font-size: 1.1rem;">High-Performance Static
+                            Hosting</span></li>
+                    <li style="display: flex; gap: 1rem; align-items: start;"><i data-lucide="check"
+                            style="color: var(--primary);"></i> <span style="font-size: 1.1rem;">Unlimited Routine
+                            Edits</span></li>
+                    <li style="display: flex; gap: 1rem; align-items: start;"><i data-lucide="check"
+                            style="color: var(--primary);"></i> <span style="font-size: 1.1rem;">Enterprise Security &
+                            SSL</span></li>
+                    <li style="display: flex; gap: 1rem; align-items: start;"><i data-lucide="check"
+                            style="color: var(--primary);"></i> <span style="font-size: 1.1rem;">Mobile & SEO
+                            Optimized</span></li>
+                    <li style="display: flex; gap: 1rem; align-items: start;"><i data-lucide="check"
+                            style="color: var(--primary);"></i> <span style="font-size: 1.1rem;">Domain Name
+                            Management</span></li>
+                </ul>
+            </div>
+
+            <a href="contact.html" class="btn active"><span>Start Your Project</span></a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center fade-up" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem;">FAQ</h2>
+            </div>
+
+            <div class="fade-up" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <div style="padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">What actually happens if I cancel?</h3>
+                    <p style="color: var(--text-muted);">When you cancel, your hosting is terminated the following
+                        billing cycle. Any domain names registered by us can be transferred to you. We aim to keep you
+                        as a client because of our value, not because you're locked in.</p>
+                </div>
+                <div style="padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">What is considered a "routine edit"?</h3>
+                    <p style="color: var(--text-muted);">Text changes, swapping out images, adding staff members to an
+                        existing page, and blogging updates. Creating entirely new systemic structures may incur a tiny
+                        one-off fee.</p>
+                </div>
+                <div style="padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Who owns the website and assets?</h3>
+                    <p style="color: var(--text-muted);">You own your business content, brand, and media. The custom
+                        code and template structure belong to Websol and are licensed to you during your active
+                        subscription.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">
+            <i data-lucide="hexagon" style="color: var(--primary);"></i> Websol
+        </div>
+        <div style="text-align: right; color: var(--text-muted);">
+            &copy; 2026 Websol. <a href="mailto:hello@websol.ca" class="interactive"
+                style="color: #FFF; margin-left: 2rem;">hello@websol.ca</a>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

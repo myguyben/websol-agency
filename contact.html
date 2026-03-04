@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Websol</title>
+    <meta name="description" content="Reach out to Websol to start your jaw-dropping website.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5vw;
+        }
+
+        .contact-info-item {
+            margin-bottom: 4rem;
+        }
+
+        .contact-info-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-item p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.5rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            outline: none;
+            margin-bottom: 2rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: none;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower"></div>
+    <div class="mouse-glow"></div>
+
+    <div id="preloader">
+        <div class="preloader-text">CONTACT</div>
+    </div>
+
+    <div class="background-gradient"></div>
+    <div class="huge-text" style="position: fixed; top: 10vh; z-index: -1;">CONNECT</div>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="hexagon"></i> Websol
+            </a>
+            <div class="nav-links">
+                <a href="index.html" data-text="Home"><span>Home</span></a>
+                <a href="pricing.html" data-text="Pricing"><span>Pricing</span></a>
+                <a href="portfolio.html" data-text="Portfolio"><span>Portfolio</span></a>
+                <a href="contact.html" data-text="Contact"><span>Contact</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 40vh; padding-top: 15vh;">
+        <div class="container">
+            <h1 class="split-text" style="font-size: clamp(3rem, 10vw, 7rem);">Say <span
+                    class="text-gradient">Hello.</span></h1>
+            <p class="fade-up" style="max-width: 600px; margin-top: 2rem; font-size: 1.5rem;">Ready to upgrade your web
+                presence without the massive upfront cost?</p>
+        </div>
+    </section>
+
+    <section style="padding-top: 0;">
+        <div class="container contact-grid">
+
+            <div class="fade-up">
+                <div class="contact-info-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:hello@websol.ca" class="interactive">hello@websol.ca</a></p>
+                </div>
+
+                <div class="contact-info-item">
+                    <h3>Call</h3>
+                    <p><a href="tel:+18005550199" class="interactive">1 (800) 555-0199</a></p>
+                </div>
+
+                <div class="contact-info-item">
+                    <h3>Global Team</h3>
+                    <p>Operating universally.</p>
+                </div>
+            </div>
+
+            <div class="fade-up">
+                <form onsubmit="event.preventDefault(); alert('Message received. We will be in touch shortly.');"
+                    style="position: relative;">
+                    <input type="text" class="form-control" placeholder="What's your name?" required>
+                    <input type="email" class="form-control" placeholder="Your email address?" required>
+                    <input type="url" class="form-control" placeholder="Current website URL (optional)">
+                    <textarea class="form-control" placeholder="Tell us about your project goals..."
+                        required></textarea>
+
+                    <button type="submit" class="btn interactive"
+                        style="margin-top: 2rem; width: 100%; border: none; cursor: pointer;">
+                        <span>Send Transmission</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer style="margin-top: 10vh;">
+        <div class="logo">
+            <i data-lucide="hexagon" style="color: var(--primary);"></i> Websol
+        </div>
+        <div style="text-align: right; color: var(--text-muted);">
+            &copy; 2026 Websol. <a href="mailto:hello@websol.ca" class="interactive"
+                style="color: #FFF; margin-left: 2rem;">hello@websol.ca</a>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

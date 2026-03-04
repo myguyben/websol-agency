@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websol | Jaw-Dropping Subscription Websites</title>
+    <meta name="description" content="Stunning websites for a flat monthly fee. Cancel anytime. Zero upfront costs.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* Specific page overrides to handle horizontal scroll wrapper height */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower"></div>
+    <div class="mouse-glow"></div>
+
+    <!-- Cinematic Preloader -->
+    <div id="preloader">
+        <div class="preloader-text">WEBSOL</div>
+    </div>
+
+    <!-- Ambient Background Gradients -->
+    <div class="background-gradient"></div>
+
+    <!-- Massive Scrolling Background Text -->
+    <div class="huge-text" style="position: fixed; top: 10vh; z-index: -1;">DIGITAL DOMINANCE</div>
+    <div class="huge-text" style="position: fixed; bottom: -5vh; z-index: -1;">NO UPFRONT FEES</div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="hexagon"></i> Websol
+            </a>
+            <div class="nav-links">
+                <a href="index.html" data-text="Home"><span>Home</span></a>
+                <a href="pricing.html" data-text="Pricing"><span>Pricing</span></a>
+                <a href="portfolio.html" data-text="Portfolio"><span>Portfolio</span></a>
+                <a href="contact.html" data-text="Contact"><span>Contact</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="z-index: 2;">
+            <div class="hero-content">
+                <div class="hero-title" style="overflow: hidden; padding-bottom: 20px;">
+                    <h1 class="split-text">Stunning Websites.<br><span class="text-gradient">Zero Upfront.</span></h1>
+                </div>
+                <div class="hero-para" style="overflow: hidden;">
+                    <p>We engineer jaw-dropping digital experiences for one flat monthly fee. Stop paying $10,000 for
+                        templates that fade. We design, host, and maintain your elite online presence.</p>
+                </div>
+
+                <div class="hero-para" style="margin-top: 3rem;">
+                    <a href="pricing.html" class="btn"><span>View Pricing</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pinned Horizontal Scroll Section: How It Works -->
+    <div class="horizontal-scroll-wrapper">
+        <div class="horizontal-container">
+
+            <div class="horizontal-panel">
+                <div class="panel-content">
+                    <div class="panel-number">01</div>
+                    <div class="panel-text">
+                        <h2 class="text-gradient">Subscribe</h2>
+                        <p>Pick a plan that fits your business. No massive deposits, no hidden fees, and absolute
+                            freedom to cancel anytime.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="horizontal-panel">
+                <div class="panel-content">
+                    <div class="panel-number" style="color: transparent; -webkit-text-stroke: 2px var(--accent);">02
+                    </div>
+                    <div class="panel-text">
+                        <h2
+                            style="background: linear-gradient(135deg, var(--accent) 0%, #FFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            We Design</h2>
+                        <p>Our team crafts a visually explosive, conversion-optimized site tailored strictly to your
+                            luxury brand identity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="horizontal-panel">
+                <div class="panel-content">
+                    <div class="panel-number">03</div>
+                    <div class="panel-text">
+                        <h2 class="text-gradient">We Launch</h2>
+                        <p>We handle the blazing fast hosting, security, and unlimited routine updates. You just run
+                            your business.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Gallery Parallax Preview (Hidden for now until we have official Websol clients)
+    <section class="work-gallery container">
+        <div class="text-center fade-up" style="margin-bottom: 5rem;">
+            <h2 style="font-size: clamp(3rem, 6vw, 5rem);">Latest <span class="text-gradient">Deployments</span></h2>
+        </div>
+
+        <div class="gallery-item interactive">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1600&auto=format&fit=crop"
+                alt="Maintenance Masters">
+            <div class="gallery-overlay">
+                <h3>Maintenance Masters</h3>
+            </div>
+            <a href="portfolio.html" style="position: absolute; inset:0;"></a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5vh;">
+            <div class="gallery-item interactive" style="height: 50vh;">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop"
+                    alt="GreenScape">
+                <div class="gallery-overlay">
+                    <h3>GreenScape</h3>
+                </div>
+                <a href="portfolio.html" style="position: absolute; inset:0;"></a>
+            </div>
+            <div class="gallery-item interactive" style="height: 50vh;">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop"
+                    alt="Apex">
+                <div class="gallery-overlay">
+                    <h3>Apex</h3>
+                </div>
+                <a href="portfolio.html" style="position: absolute; inset:0;"></a>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Epic CTA -->
+    <section class="pricing-block">
+        <div class="container fade-up">
+            <h2>The Websol Tier</h2>
+            <div class="price">$199</div>
+            <p style="font-size: 1.5rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem;">Everything
+                you need. Design, hosting, domains, security, and updates.</p>
+            <a href="contact.html" class="btn"><span>Start Your Project</span></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">
+            <i data-lucide="hexagon" style="color: var(--primary);"></i> Websol
+        </div>
+        <div style="text-align: right; color: var(--text-muted);">
+            &copy; 2026 Websol. <a href="mailto:hello@websol.ca" class="interactive"
+                style="color: #FFF; margin-left: 2rem;">hello@websol.ca</a>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>lucide.createIcons();</script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

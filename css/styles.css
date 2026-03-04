@@ -1,0 +1,454 @@
+:root {
+    --primary: #06B6D4;
+    --accent: #8B5CF6;
+    --bg-dark: #05080F;
+    /* Darker than before for more contrast */
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+
+    /* Neon Glows */
+    --glow-cyan: 0 0 30px rgba(6, 182, 212, 0.6);
+    --glow-purple: 0 0 30px rgba(139, 92, 246, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important;
+    /* Custom cursor everywhere */
+}
+
+/* Custom Cursor */
+.cursor-dot,
+.cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(6, 182, 212, 0.5);
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+    /* We update position via JS, but NO CSS transition on transform to avoid lag */
+}
+
+/* Hover States for Cursor */
+.cursor-hover .cursor-dot {
+    width: 0;
+    height: 0;
+}
+
+.cursor-hover .cursor-follower {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(6, 182, 212, 0.2);
+    border-color: var(--primary);
+    backdrop-filter: blur(4px);
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.preloader-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(4rem, 15vw, 10rem);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    /* Start hidden from bottom */
+}
+
+.preloader-text::after {
+    content: 'WEBSOL';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary);
+    -webkit-text-stroke: 0px;
+    width: 0%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Smooth Scrolling (Lenis requires this) */
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.1;
+    color: #FFFFFF;
+}
+
+/* SplitText Animation Utilities */
+.line {
+    overflow: hidden;
+}
+
+.word {
+    display: inline-block;
+    transform: translateY(110%);
+}
+
+.char {
+    display: inline-block;
+}
+
+/* Massive Typography */
+.huge-text {
+    font-size: clamp(5rem, 15vw, 12rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    white-space: nowrap;
+    opacity: 0.1;
+    /* Allow it to bleed off screen */
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Layout Commons */
+.container {
+    max-width: 1400px;
+    /* Wider for cinematic feel */
+    margin: 0 auto;
+    padding: 0 4vw;
+}
+
+section {
+    padding: 10vh 0;
+    position: relative;
+    z-index: 10;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ambient Deep Space Gradients */
+.background-gradient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, var(--bg-dark) 60%);
+    pointer-events: none;
+}
+
+.mouse-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(40px);
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 2rem 0;
+    mix-blend-mode: difference;
+    /* Insane contrast trick */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFF;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: #FFF;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.nav-links a::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    color: var(--primary);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.nav-links a:hover span {
+    transform: translateY(-100%);
+}
+
+.nav-links a:hover::after {
+    transform: translateY(-100%);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 0;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-left: -0.5vw;
+    /* Tighten edge */
+}
+
+.hero p {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    max-width: 600px;
+    margin-top: 2rem;
+    color: var(--text-muted);
+}
+
+/* Horizontal Scroll Section (Pinned) */
+.horizontal-scroll-wrapper {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.horizontal-container {
+    display: flex;
+    width: 300vw;
+    /* 3 screens wide */
+    height: 100%;
+}
+
+.horizontal-panel {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4vw;
+    position: relative;
+}
+
+.panel-content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.panel-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15rem;
+    font-weight: 800;
+    -webkit-text-stroke: 2px var(--primary);
+    color: transparent;
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.panel-text h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.panel-text p {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: #FFF;
+    color: #000;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    transition: top 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    border-radius: 50% 50% 0 0;
+    z-index: -1;
+}
+
+.btn:hover {
+    color: #FFF;
+    transform: scale(1.05);
+}
+
+.btn:hover::before {
+    top: 0;
+    border-radius: 0;
+}
+
+.btn>span {
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-block {
+    text-align: center;
+    padding: 10rem 0;
+}
+
+.pricing-block .price {
+    font-size: clamp(8rem, 15vw, 12rem);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 2px #FFF;
+    margin: 2rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.pricing-block .price::after {
+    content: '/month';
+    font-size: 2rem;
+    -webkit-text-stroke: 0px;
+    color: var(--primary);
+    position: absolute;
+    bottom: 2rem;
+    right: -6rem;
+}
+
+.work-gallery {
+    margin: 10rem 0;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 60vh;
+    margin-bottom: 5vh;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+    /* Required for GSAP parallax */
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-overlay h3 {
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+footer {
+    padding: 4vw;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
