@@ -149,7 +149,8 @@
             <script>
                 document.getElementById('contactForm').addEventListener('submit', async function(e) {
                     e.preventDefault();
-                    const btn = this.querySelector('button');
+                    const form = this;
+                    const btn = form.querySelector('button');
                     const status = document.getElementById('formStatus');
                     btn.disabled = true;
                     btn.querySelector('span').textContent = 'Sending...';
@@ -161,17 +162,17 @@
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
                                 site_id: 'websol',
-                                name: this.name.value,
-                                email: this.email.value,
-                                service_requested: this.website.value || null,
-                                message: this.message.value
+                                name: form.querySelector('[name="name"]').value,
+                                email: form.querySelector('[name="email"]').value,
+                                service_requested: form.querySelector('[name="website"]').value || null,
+                                message: form.querySelector('[name="message"]').value
                             })
                         });
 
                         if (res.ok) {
                             status.style.color = '#4ade80';
                             status.textContent = 'Message received! We\'ll be in touch shortly.';
-                            this.reset();
+                            form.reset();
                         } else {
                             throw new Error('Server error');
                         }
