@@ -131,20 +131,59 @@
             </div>
 
             <div class="fade-up">
-                <form onsubmit="event.preventDefault(); alert('Message received. We will be in touch shortly.');"
-                    style="position: relative;">
-                    <input type="text" class="form-control" placeholder="What's your name?" required>
-                    <input type="email" class="form-control" placeholder="Your email address?" required>
-                    <input type="url" class="form-control" placeholder="Current website URL (optional)">
-                    <textarea class="form-control" placeholder="Tell us about your project goals..."
+                <form id="contactForm" style="position: relative;">
+                    <input type="text" name="name" class="form-control" placeholder="What's your name?" required>
+                    <input type="email" name="email" class="form-control" placeholder="Your email address?" required>
+                    <input type="url" name="website" class="form-control" placeholder="Current website URL (optional)">
+                    <textarea name="message" class="form-control" placeholder="Tell us about your project goals..."
                         required></textarea>
 
                     <button type="submit" class="btn interactive"
                         style="margin-top: 2rem; width: 100%; border: none; cursor: pointer;">
                         <span>Send Transmission</span>
                     </button>
+                    <p id="formStatus" style="margin-top: 1rem; font-size: 1.1rem;"></p>
                 </form>
             </div>
+
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const btn = this.querySelector('button');
+                    const status = document.getElementById('formStatus');
+                    btn.disabled = true;
+                    btn.querySelector('span').textContent = 'Sending...';
+                    status.textContent = '';
+
+                    try {
+                        const res = await fetch('https://websol-backend.onrender.com/api/contact', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                site_id: 'websol',
+                                name: this.name.value,
+                                email: this.email.value,
+                                service_requested: this.website.value || null,
+                                message: this.message.value
+                            })
+                        });
+
+                        if (res.ok) {
+                            status.style.color = '#4ade80';
+                            status.textContent = 'Message received! We\'ll be in touch shortly.';
+                            this.reset();
+                        } else {
+                            throw new Error('Server error');
+                        }
+                    } catch (err) {
+                        status.style.color = '#f87171';
+                        status.textContent = 'Something went wrong. Please email us directly.';
+                    } finally {
+                        btn.disabled = false;
+                        btn.querySelector('span').textContent = 'Send Transmission';
+                    }
+                });
+            </script>
 
         </div>
     </section>
